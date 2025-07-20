@@ -11,15 +11,18 @@
   <div id="header"></div>
 
 <!-- Contact Section -->
-<form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thankyou.html">
+<form 
+  name="contact" 
+  method="POST" 
+  data-netlify="true" 
+  netlify-honeypot="bot-field" 
+  id="contact-form"
+  onsubmit="showThankYou(); return false;"
+>
+  <!-- hidden input for Netlify -->
   <input type="hidden" name="form-name" value="contact" />
+  <p hidden><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
-  <!-- Hidden bot field -->
-  <p hidden>
-    <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-  </p>
-
-  <!-- Your form fields -->
   <div class="form-group">
     <label for="name">Your Name *</label>
     <input type="text" id="name" name="name" required />
@@ -38,10 +41,26 @@
   <button type="submit" class="btn">Send Message</button>
 </form>
 
-
+<!-- Thank You message (hidden by default) -->
+<div id="thank-you" style="display: none; text-align: center; margin-top: 2rem;">
+  <h3>Thank you!</h3>
+  <p>Your message has been submitted successfully. We'll contact you soon.</p>
+</div>
 
   <!-- Footer -->
   <div id="footer"></div>
+<script>
+  function showThankYou() {
+    const form = document.getElementById("contact-form");
+    const thankYou = document.getElementById("thank-you");
+
+    // Let Netlify submit the form in the background
+    setTimeout(() => {
+      form.style.display = "none";
+      thankYou.style.display = "block";
+    }, 500);
+  }
+</script>
 
   <script src="/js/include.js"></script>
 </body>
