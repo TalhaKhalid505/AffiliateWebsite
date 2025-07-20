@@ -229,7 +229,8 @@ nav a:hover {
   text-decoration: none;
   color: inherit;
   height: 100%;
-  max-width: 100%;
+  max-width: 300px;
+  margin: auto;
 }
 
 .category-card:hover {
@@ -238,10 +239,10 @@ nav a:hover {
 }
 
 .category-card img {
-  width: 80%;           /* Shrinks image size */
-  max-height: 180px;    /* Optional: Limits height */
+  width: 100%;           /* Shrinks image size */
+  height: 180px;    /* Optional: Limits height */
   margin: 1rem auto 0;  /* Centers image */
-  object-fit: contain;
+  object-fit: cover;
   background-color: #f9f9f9;
   display: block;
 }
